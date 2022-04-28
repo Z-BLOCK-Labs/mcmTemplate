@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'Gilroy-Regular';
+    src: url('./static/font/Gilroy-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-SemiBold';
+    src: url('./static/font/Gilroy-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-UltraLight';
+    src: url('./static/font/Gilroy-UltraLight.ttf');
+}
+
+@font-face {
+    font-family: 'HYBaManTi';
+    src: url('./static/font/HYBaManTiW.ttf');
+}
+
+@font-face {
+    font-family: 'Gill Sans';
+    src: url('./static/font/Gill-Sans-2.ttf');
+}
+
+@font-face {
+    font-family: 'GillSans-Light';
+    src: url('./static/font/Gill-sans-light-3.ttf');
+}
+
+@font-face {
+    font-family: 'GillSans-SemiBold';
+    src: url('./static/font/Gill-sans-heavy-4.ttf');
+}

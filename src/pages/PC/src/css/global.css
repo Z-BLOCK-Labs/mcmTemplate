@@ -1,0 +1,31 @@
+body {
+    margin: 0 auto;
+    line-height: 1.5;
+    background-color: #202135;
+}
+
+h1,
+h5,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* button:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    transition: all 0.2s ease;
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+    box-shadow: 0 0 7px #2f5fff;
+} */
+input:hover {
+    box-shadow: 0 0 7px #2f5fff;
+}

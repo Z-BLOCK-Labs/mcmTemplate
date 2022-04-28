@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #202135;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+@font-face {
+    font-family: 'icomoon';
+    src: url('./static/font/icomoon.eot?vzvn6t');
+    src: url('./static/font/icomoon.eot?vzvn6t#iefix')
+            format('embedded-opentype'),
+        url('./static/font/icomoon.ttf?vzvn6t') format('truetype'),
+        url('./static/font/icomoon.woff?vzvn6t') format('woff'),
+        url('./static/font/icomoon.svg?vzvn6t#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}

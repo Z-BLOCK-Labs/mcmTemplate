@@ -1,0 +1,14 @@
+.banner {
+    margin: 0 auto;
+    margin-bottom: 7.9903vw;
+    max-width: 90.5569vw;
+    height: 50.4843vw;
+    border-radius: 7.7482vw;
+    box-shadow: 0 0vw 3.632vw 0.2421vw rgb(69 104 251 / 60%);
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    border-radius: 7.7482vw;
+}

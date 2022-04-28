@@ -1,0 +1,121 @@
+nav {
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 5.8111vw;
+    padding: 0 4.8426vw;
+    max-width: 100.2421vw;
+    height: 14.4068vw;
+    border-bottom: 0.2421vw solid #32334f;
+    background: #202135;
+}
+
+nav img {
+    width: 12.1065vw;
+    height: 2.7845vw;
+}
+
+nav .menue {
+    margin-left: 2.9056vw;
+    justify-content: center;
+    align-items: center;
+    width: 8.7167vw;
+    height: 8.7167vw;
+    border: 0.2421vw solid #3f405a;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+nav .menue img {
+    width: 3.3898vw;
+    height: 2.6634vw;
+}
+
+nav button {
+    position: absolute;
+    top: 1.5vw;
+    right: 16.4649vw;
+    width: 28.339vw;
+    height: 10.7167vw;
+    font-size: 2.9056vw;
+    font-family: HYBaManTi;
+    font-weight: normal;
+    color: #ffffff;
+    background: #ffffff;
+    border-radius: 4.3584vw;
+    background: url(../../../static/img/button.png) no-repeat;
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+nav button:hover {
+    box-shadow: none;
+}
+
+nav .box1 {
+    flex: 2;
+}
+
+.box {
+    max-width: 90vw;
+    box-sizing: border-box;
+    padding-left: 4.8426vw;
+}
+
+.box a {
+    display: inline-block;
+    width: 90vw;
+    padding-bottom: 8.2324vw;
+    font-size: 3.8741vw;
+    font-family: Gill Sans;
+    font-weight: 600;
+    color: #bfbfbf;
+}
+
+.box a:hover {
+    color: #ffffff;
+}
+
+nav .CloseMenue {
+    width: 3.8741vw;
+    height: 3.8741vw;
+}
+
+/*hide checkbox*/
+input[type='checkbox'] {
+    display: none;
+}
+
+/*more and hide's button style*/
+.check-in,
+.check-out {
+    cursor: pointer;
+}
+
+/*hide check-out button default*/
+.check-out {
+    display: none;
+}
+
+/*when checked,show close button*/
+:checked ~ .check-out {
+    display: inline-block;
+}
+
+/* when checked,hide more button*/
+:checked ~ .check-in {
+    display: none;
+}
+
+/*more's max-height,don't show it*/
+.element {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+}
+
+/*when checked,more's max-height,trigger transition animate to dropdown*/
+:checked ~ .element {
+    max-height: 80.6295vw;
+}

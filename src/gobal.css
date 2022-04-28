@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+}
+@font-face {
+    font-family: 'icomoon';
+    src: url('./static/fonts/icomoon.eot?vzvn6t');
+    src: url('./static/fonts/icomoon.eot?vzvn6t#iefix')
+            format('embedded-opentype'),
+        url('./static/fonts/icomoon.ttf?vzvn6t') format('truetype'),
+        url('./static/fonts/icomoon.woff?vzvn6t') format('woff'),
+        url('./static/fonts/icomoon.svg?vzvn6t#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+@font-face {
+    font-family: 'HYBaManTi';
+    src: url('static/fonts/HYBaManTiW.ttf');
+}
+@font-face {
+    font-family: 'Gill Sans';
+    src: url('static/fonts/Gill-Sans-2.ttf');
+}
+@font-face {
+    font-family: 'GillSans-Light';
+    src: url('static/fonts/Gill-sans-light-3.ttf');
+}
+input:focus-visible,
+button:focus-visible {
+    outline: none;
+}
+button:active {
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+h5,
+p {
+    margin: 0;
+}
