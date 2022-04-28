@@ -5,7 +5,7 @@ import Layout from './pages/layout';
 // import routes from './routeConfig ';
 import './index.css';
 import './font.css';
-import north from '@/../config/north.config.js';
+import north from "webpack/north.config.js";
 
 import { North } from '@zblock/north';
 north.init({
