@@ -6,14 +6,14 @@
 	"license": "MIT",
 	"scripts": {
 		"clean": "rm -rf dist",
-		"build": "webpack --mode production --config ./config/prod.config.js",
-		"start:pc": "webpack-dev-server --config ./config/pcdev.config.js --hot --mode development",
-		"build:pc": "webpack --mode production --config ./config/prod_pc.config.js",
+		"build": "webpack --mode production --config ./webpack/prod.config.js",
+		"start:pc": "webpack-dev-server --config ./webpack/pcdev.config.js --hot --mode development",
+		"build:pc": "webpack --mode production --config ./webpack/prod_pc.config.js",
 		"release:pc": "yarn build:pc && scp -r dist root@8.210.48.242:~/staking/pc && yarn clean",
-		"start:h5": "webpack-dev-server --config ./config/h5dev.config.js --hot --mode development",
-		"build:h5": "webpack --mode production --config ./config/prod_h5.config.js",
+		"start:h5": "webpack-dev-server --config ./webpack/h5dev.config.js --hot --mode development",
+		"build:h5": "webpack --mode production --config ./webpack/prod_h5.config.js",
 		"release:h5": "yarn build:h5 && scp -r dist root@8.210.48.242:~/staking/mobile && yarn clean ",
-		"build:analyzer": "webpack --mode production --config ./config/analyzer.config.js"
+		"build:analyzer": "webpack --mode production --config ./webpack/analyzer.config.js"
 	},
 	"dependencies": {
 		"@sentry/webpack-plugin": "^1.18.8",
@@ -23,6 +23,7 @@
 		"@zblock/north": "^0.1.0",
 		"antd": "^4.20.0",
 		"antd-mobile": "^5.10.3",
+		"axios": "^0.27.2",
 		"clean-webpack-plugin": "^4.0.0",
 		"css-loader": "^6.6.0",
 		"esbuild-loader": "^2.18.0",

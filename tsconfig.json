@@ -23,6 +23,9 @@
     "esModuleInterop": true,
     "paths": {
       "@/*": ["./src/*"],
+      "@config/*": [
+        "./config/*"
+      ]
     },
   },
   "include": ["src/**/*"],
