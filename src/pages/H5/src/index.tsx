@@ -5,12 +5,14 @@ import Layout from './pages/layout';
 // import routes from './routeConfig ';
 import './index.css';
 import './font.css';
-import north from "webpack/north.config.js";
+import north from "@/../webpack/north.config.js";
+import { North } from "@zblock/north";
 
-import { North } from '@zblock/north';
-north.init({
+if (process.env.NODE_ENV === "prod") {
+  north.init({
     sentry: {
-        integrations: [new North.BrowserTracing()],
+      integrations: [new North.BrowserTracing()],
     },
-});
+  });
+}
 ReactDOM.render(<Layout></Layout>, document.getElementById('root'));

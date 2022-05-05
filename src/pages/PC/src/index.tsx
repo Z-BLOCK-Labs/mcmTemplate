@@ -8,10 +8,13 @@ import App from './pages/layout';
 import north from "../../../../webpack/north.config.js";
 import { North } from '@zblock/north';
 
-north.init({
+if (process.env.NODE_ENV === "prod") {
+  north.init({
     sentry: {
-        integrations: [new North.BrowserTracing()],
+      integrations: [new North.BrowserTracing()],
     },
-});
+  });
+}
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
