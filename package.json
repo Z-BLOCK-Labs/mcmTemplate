@@ -7,10 +7,10 @@
 	"scripts": {
 		"clean": "rm -rf dist",
 		"build": "webpack --mode production --config ./webpack/prod.config.js",
-		"start:pc": "webpack-dev-server --config ./webpack/pcdev.config.js --hot --mode development",
+		"start:pc": "webpack-dev-server --config ./webpack/dev_pc.config.js --hot --mode development",
 		"build:pc": "webpack --mode production --config ./webpack/prod_pc.config.js",
 		"release:pc": "yarn build:pc && scp -r dist root@8.210.48.242:~/staking/pc && yarn clean",
-		"start:h5": "webpack-dev-server --config ./webpack/h5dev.config.js --hot --mode development",
+		"start:h5": "webpack-dev-server --config ./webpack/dev_h5.config.js --hot --mode development",
 		"build:h5": "webpack --mode production --config ./webpack/prod_h5.config.js",
 		"release:h5": "yarn build:h5 && scp -r dist root@8.210.48.242:~/staking/mobile && yarn clean ",
 		"build:analyzer": "webpack --mode production --config ./webpack/analyzer.config.js"

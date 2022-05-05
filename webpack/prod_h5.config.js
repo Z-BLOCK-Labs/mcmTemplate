@@ -1,13 +1,13 @@
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const normalConfig = require('./webpack.prod.base.config');
+const normalConfig = require("./webpack.prod.base.config.js");
 const path = require('path');
 
 normalConfig.plugins.push(
-    new HtmlWebpackPlugin({
-        template: '/public/template/index-h5.html',
-        favicon: path.resolve('./public/favicon.ico'),
-    })
+  new HtmlWebpackPlugin({
+    template: path.resolve("./public/template/index-h5.html"),
+    favicon: path.resolve("./public/favicon.ico"),
+  })
 );
 
 module.exports = merge(normalConfig, {
