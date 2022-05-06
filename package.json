@@ -6,13 +6,10 @@
 	"license": "MIT",
 	"scripts": {
 		"clean": "rm -rf dist",
-		"build": "webpack --mode production --config ./webpack/prod.config.js",
-		"start:pc": "webpack-dev-server --config ./webpack/dev_pc.config.js --hot --mode development",
-		"build:pc": "webpack --mode production --config ./webpack/prod_pc.config.js",
-		"release:pc": "yarn build:pc && scp -r dist root@8.210.48.242:~/staking/pc && yarn clean",
-		"start:h5": "webpack-dev-server --config ./webpack/dev_h5.config.js --hot --mode development",
-		"build:h5": "webpack --mode production --config ./webpack/prod_h5.config.js",
-		"release:h5": "yarn build:h5 && scp -r dist root@8.210.48.242:~/staking/mobile && yarn clean ",
+		"start:pc": "webpack-dev-server  --env platform=pc --config ./webpack/webpack.confg.js --hot --mode development",
+		"build:pc": "webpack  --env platform=pc --mode production --config ./webpack/webpack.confg.js",
+		"start:h5": "webpack-dev-server --env platform=h5 --config ./webpack/webpack.confg.js --hot --mode development",
+		"build:h5": "webpack --env platform=h5 --mode production --config ./webpack/webpack.confg.js",
 		"build:analyzer": "webpack --mode production --config ./webpack/analyzer.config.js"
 	},
 	"dependencies": {
@@ -40,7 +37,8 @@
 		"webpack": "^5.69.1",
 		"webpack-bundle-analyzer": "^4.5.0",
 		"webpack-cli": "^4.9.2",
-		"webpack-dev-server": "^4.7.4"
+		"webpack-dev-server": "^4.7.4",
+		"yargs": "^17.4.1"
 	},
 	"devDependencies": {
 		"@types/styled-components": "^5.1.25"

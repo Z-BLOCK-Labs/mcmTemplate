@@ -4,7 +4,6 @@ import { getSearch } from "@/untiles";
 import "./index.css";
 const Detail = () => {
   const { type } = getSearch(useLocation());
-
   return (
     <>
       <h1>this is Detail Page</h1>
