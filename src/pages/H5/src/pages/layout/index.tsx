@@ -1,29 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import Navigator from "./mods/Navigator";
 import BannerComponent from "@/pages/H5/components/BannerComponent";
-import { MyContext } from "../../static/js/context-manager";
 import "./index.css";
-import { getAllParameter } from "@/contract/function/ParameterFunc";
 import Home from "../Home";
 import Detail from "../detail";
+import { MyContext } from "@/untiles/context";
+import banner from "@/pages/H5/components/BannerComponent/banner.png";
 function App() {
   const [address, setAddress] = useState("");
   const [issueFlag, setIssueFlag] = useState(false);
   const [parameterData, setParameterData] = useState([]);
 
-  const getParameter = async () => {
-    try {
-      const res = await getAllParameter();
-      setParameterData(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    if (address.length === 0) return;
-    getParameter();
-  }, [address]);
   return (
     <MyContext.Provider
       value={{
@@ -37,7 +25,12 @@ function App() {
     >
       <div className="App">
         <Navigator />
-        <BannerComponent />
+        <BannerComponent
+          imgSrc={banner}
+          title={"AFK Pools"}
+          titleContent={"Stake your AFK get, veAFK at 1:1 and earn rewards."}
+          boxContent={"AFK Pools"}
+        />
         <HashRouter>
           <Switch>
             <Route exact path="/">

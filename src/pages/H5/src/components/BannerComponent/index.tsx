@@ -1,23 +1,32 @@
-import React from 'react';
-import { Banner } from './style';
-import banner from './banner.png';
-export default function BannerComponent() {
-    return (
-        <>
-            <Banner>
-                <div className="GridBackground">
-                    <div className="Title">
-                        <h1>AFK Pools</h1>
-                        <p>
-                            Stake your AFK get, veAFK at 1:1 and earn rewards.
-                        </p>
-                    </div>
-                    <img src={banner} />
-                    <div className="box">
-                        <p>AFK Pools</p>
-                    </div>
-                </div>
-            </Banner>
-        </>
-    );
+import React from "react";
+import { Banner } from "./style";
+
+export interface IProps {
+  imgSrc: string;
+  title: string;
+  titleContent: string;
+  boxContent: string;
+}
+export default function BannerComponent({
+  title,
+  titleContent,
+  imgSrc,
+  boxContent,
+}: IProps) {
+  return (
+    <>
+      <Banner>
+        <div className="GridBackground">
+          <div className="Title">
+            <h1>{title}</h1>
+            <p>{titleContent}</p>
+          </div>
+          <img src={imgSrc} />
+          <div className="box">
+            <p>{boxContent}</p>
+          </div>
+        </div>
+      </Banner>
+    </>
+  );
 }
