@@ -5,6 +5,11 @@ const prodConfig = require("./webpack.prod.base.config");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const smp = new SpeedMeasurePlugin();
+
 module.exports = ({ platform, analyzer }, { mode }) => {
   let baseConfig = mode === "production" ? prodConfig : devConfig;
   let HtmlPluginConfig;
@@ -27,6 +32,8 @@ module.exports = ({ platform, analyzer }, { mode }) => {
   if (analyzer) {
     baseConfig.plugins.push(new BundleAnalyzerPlugin());
   }
+  smp.wrap(baseConfig);
+  baseConfig.plugins.push(new MiniCssExtractPlugin());
   return merge(baseConfig, {
     entry: path.resolve(__dirname, entryPath),
     output: {
