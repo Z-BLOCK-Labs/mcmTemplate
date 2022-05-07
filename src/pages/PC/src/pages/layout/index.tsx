@@ -7,6 +7,7 @@ import Navigate from "../../components/Navgate/index";
 import BannerComponent from "@/pages/PC/src/components/BannerComponent";
 import Loading from "../../components/LoadingWindows";
 import { MyContext } from "../../untiles/context";
+import banner from "@/pages/PC/src/components/BannerComponent/banner.png";
 function App() {
   const [count, setCount] = useState(0);
   const [address_, setAddress_] = useState("");
@@ -28,7 +29,12 @@ function App() {
 
         <div className="main_area">
           {showLoading ? <Loading></Loading> : null}
-          <BannerComponent></BannerComponent>
+          <BannerComponent
+            imgSrc={banner}
+            title={"AFK Pools"}
+            titleContent={"Stake your AFK get, veAFK at 1:1 and earn rewards."}
+            boxContent={"AFK Pools"}
+          ></BannerComponent>
           <HashRouter>
             <Switch>
               <Route exact path="/">
