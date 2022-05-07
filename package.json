@@ -8,9 +8,10 @@
 		"clean": "rm -rf dist",
 		"start:pc": "webpack-dev-server  --env platform=pc --config ./webpack/webpack.confg.js --hot --mode development",
 		"build:pc": "webpack  --env platform=pc --mode production --config ./webpack/webpack.confg.js",
+		"build:analyzer:pc": "webpack --env platform=pc analyzer --mode production --config ./webpack/webpack.confg.js",
 		"start:h5": "webpack-dev-server --env platform=h5 --config ./webpack/webpack.confg.js --hot --mode development",
 		"build:h5": "webpack --env platform=h5 --mode production --config ./webpack/webpack.confg.js",
-		"build:analyzer": "webpack --mode production --config ./webpack/analyzer.config.js"
+		"build:analyzer:h5": "webpack --env platform=h5 analyzer --mode production --config ./webpack/webpack.confg.js"
 	},
 	"dependencies": {
 		"@sentry/webpack-plugin": "^1.18.8",

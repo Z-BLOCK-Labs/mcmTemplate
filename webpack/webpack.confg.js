@@ -3,8 +3,9 @@ const path = require("path");
 const devConfig = require("./webpack.base.config");
 const prodConfig = require("./webpack.prod.base.config");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
-module.exports = ({ platform }, { mode }) => {
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+module.exports = ({ platform, analyzer }, { mode }) => {
   let baseConfig = mode === "production" ? prodConfig : devConfig;
   let HtmlPluginConfig;
   let entryPath = "";
@@ -23,6 +24,9 @@ module.exports = ({ platform }, { mode }) => {
   }
 
   baseConfig.plugins.push(new HtmlWebpackPlugin(HtmlPluginConfig));
+  if (analyzer) {
+    baseConfig.plugins.push(new BundleAnalyzerPlugin());
+  }
   return merge(baseConfig, {
     entry: path.resolve(__dirname, entryPath),
     output: {
