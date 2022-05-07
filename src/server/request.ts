@@ -1,5 +1,5 @@
 import axios from "axios";
-import CONFIG from "@/../config";
+import CONFIG from "@config/index";
 export interface RequestParams {
   url: string;
   body?: any;
