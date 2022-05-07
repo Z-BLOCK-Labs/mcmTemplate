@@ -98,7 +98,7 @@ module.exports = {
     https: false, // true for self-signed, object for cert authority
   },
   plugins: [
-    new MiniCssExtractPlugin(),
+    // new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
     new DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(ENV),

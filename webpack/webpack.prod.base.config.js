@@ -108,7 +108,7 @@ module.exports = {
     new DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(ENV),
     }),
-    new MiniCssExtractPlugin(),
+    // new MiniCssExtractPlugin(),
     new webpack.BannerPlugin({
       entryOnly: true,
       banner: () => `
