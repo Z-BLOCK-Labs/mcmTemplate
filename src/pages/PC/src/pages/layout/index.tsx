@@ -6,22 +6,28 @@ import Detail from "../detail";
 import Navigate from "../../components/Navgate/index";
 import BannerComponent from "@/pages/PC/src/components/BannerComponent";
 import Loading from "../../components/LoadingWindows";
-import { MyContext } from "../../untiles/context";
+import { MyContext } from "@/untiles/context";
 import banner from "@/pages/PC/src/components/BannerComponent/banner.png";
 function App() {
   const [count, setCount] = useState(0);
-  const [address_, setAddress_] = useState("");
+  const [address, setAddress] = useState("");
   const [showLoading, setShowLoading] = useState(false);
+  const [issueFlag, setIssueFlag] = useState(false);
+  const [parameterData, setParameterData] = useState([]);
   useEffect(() => {}, [showLoading]);
   return (
     <MyContext.Provider
       value={{
         count,
         setCount,
-        address_,
-        setAddress_,
+        address,
+        setAddress,
         showLoading,
         setShowLoading,
+        issueFlag,
+        setIssueFlag,
+        parameterData,
+        setParameterData,
       }}
     >
       <div className="main">

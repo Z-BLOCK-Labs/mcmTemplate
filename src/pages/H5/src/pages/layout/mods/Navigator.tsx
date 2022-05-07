@@ -15,7 +15,7 @@ function Navigator() {
   function handleClose() {
     setMenueFlag("none");
   }
-  const [address, chains, getAccount] = useWallet();
+  const [address, getAccount] = useWallet();
 
   return (
     <div>
@@ -31,7 +31,6 @@ function Navigator() {
           <ConnectButton onClick={getAccount}>
             {address === "" ? "Connect" : filter(address)}
           </ConnectButton>
-          {/* <Connect></Connect> */}
         </div>
         <label htmlFor="check" className="check-in">
           <div

@@ -120,6 +120,6 @@ function useWallet() {
       Context.setIssueFlag(false);
     }
   };
-  return [Context.address, chains_, getAccount];
+  return [Context.address, getAccount];
 }
 export default useWallet;
