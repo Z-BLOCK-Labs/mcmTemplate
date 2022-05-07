@@ -6,10 +6,7 @@ import { MyContext } from "@/untiles/context";
 import { getAllParameter } from "@/contract/function/ParameterFunc";
 
 function useWallet() {
-  const AddressData = useContext(MyContext);
-  const issueFlagData = useContext(MyContext);
-  const paraData = useContext(MyContext);
-  // const [AddressData, issueFlagData, paraData] = useContext(MyContext);
+  const Context = useContext(MyContext);
   const [chains_, setChains] = useState("");
   const [chainsFlag, setChainFlag] = useState(false);
   const supportedChainIds = ["0x61", "0x38"];
@@ -48,14 +45,13 @@ function useWallet() {
   // 检测用户是否锁定了账户
   function handleAccountsChanged(accounts: any) {
     if (accounts?.length === 0) {
-      AddressData.setAddress("");
+      Context.setAddress("");
       setChains("");
     } else {
       // 检测账户切换后更新账户地址
-      AddressData.setAddress(accounts[0]);
+      Context.setAddress(accounts[0]);
       getChain();
       identifyBorrower(accounts[0]);
-      // 去除window.localStorage后无影响
       const userAdress = window.localStorage.getItem("userAddress");
       if (!accounts[0]) return;
       if (!userAdress) {
@@ -105,25 +101,25 @@ function useWallet() {
   const getParameter = async () => {
     try {
       const res = await getAllParameter();
-      paraData.setParameterData(res);
+      Context.setParameterData(res);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    if (AddressData.address.length === 0 || !chainsFlag) return;
+    if (Context.address.length === 0 || !chainsFlag) return;
     getParameter();
-  }, [AddressData.address]);
+  }, [Context.address]);
 
   // identify user
   const identifyBorrower = async (AccountAddress: string) => {
     try {
       const res = await isBorrower(AccountAddress);
-      issueFlagData.setIssueFlag(res);
+      Context.setIssueFlag(res);
     } catch (error) {
-      issueFlagData.setIssueFlag(false);
+      Context.setIssueFlag(false);
     }
   };
-  return [AddressData.address, chains_, getAccount];
+  return [Context.address, chains_, getAccount];
 }
 export default useWallet;
