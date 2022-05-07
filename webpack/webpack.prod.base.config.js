@@ -5,7 +5,8 @@ const pkg = require('../package.json');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const { DefinePlugin } = require('webpack');
-const SentryCliPlugin = require('@sentry/webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const SentryCliPlugin = require("@sentry/webpack-plugin");
 const ENV = "prod";
 module.exports = {
   mode: "production", // "production" | "development" | "none"
@@ -138,6 +139,7 @@ module.exports = {
       new TerserPlugin({
         extractComments: false,
       }),
+      new CssMinimizerPlugin(),
     ],
     concatenateModules: false,
     providedExports: false,
