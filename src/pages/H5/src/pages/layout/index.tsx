@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import Navigator from "./mods/Navigator";
-import BannerComponent from "@/pages/H5/components/BannerComponent";
 import "./index.css";
 import Home from "../Home";
 import Detail from "../detail";
 import { MyContext } from "@/untiles/context";
-import banner from "@/pages/H5/components/BannerComponent/banner.png";
+import BannerComponent from "../../components/BannerComponent";
+import banner from "@/pages/H5/src/components/BannerComponent/banner.png";
 function App() {
   const [address, setAddress] = useState("");
   const [issueFlag, setIssueFlag] = useState(false);
