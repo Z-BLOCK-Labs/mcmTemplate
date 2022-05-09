@@ -4,6 +4,9 @@ import { Toast } from "antd-mobile";
 import { isBorrower } from "@/contract/function/AccessProxyFunc";
 import { MyContext } from "@/untiles/context";
 import { getAllParameter } from "@/contract/function/ParameterFunc";
+import openNotification from "@/components/Notification/Notification";
+import { fotmatErrorMsg } from "@/untiles";
+import { h5GetError } from "@/untiles/error";
 
 function useWallet() {
   const Context = useContext(MyContext);
@@ -11,12 +14,25 @@ function useWallet() {
   const [chainsFlag, setChainFlag] = useState(false);
   const supportedChainIds = ["0x61", "0x38"];
 
+  const errorFunction = (error) => {
+    switch (process.env.platform) {
+      case "h5":
+        Toast.show(fotmatErrorMsg(h5GetError(error)));
+        break;
+      case "pc":
+        openNotification(
+          [1, 1],
+          fotmatErrorMsg(error.data?.message ?? error.message ?? error)
+        );
+        break;
+    }
+  };
+
   let provider: ethers.ethers.providers.Web3Provider;
   if (typeof window.ethereum !== "undefined") {
     provider = new ethers.providers.Web3Provider(window.ethereum, "any");
   } else {
-    // Toast.show("Connect failed: Please install wallet first.");
-    Context.setWalletError("Connect failed: Please install wallet first.");
+    errorFunction("Connect failed: Please install wallet first.");
   }
 
   function handleChainChanged(chainId: any) {
@@ -24,8 +40,7 @@ function useWallet() {
       setChains(chainId);
       setChainFlag(true);
     } else {
-      // Toast.show("This chain hasn't been supported yet.");
-      Context.setWalletError("This chain hasn't been supported yet.");
+      errorFunction("This chain hasn't been supported yet.");
       setChainFlag(false);
     }
   }
@@ -40,7 +55,7 @@ function useWallet() {
         handleChainChanged(result_);
       })
       .catch((error: any) => {
-        console.log(error);
+        errorFunction(error);
       });
   }
 
@@ -68,14 +83,12 @@ function useWallet() {
   }
   // 获取账户地址 (ethers)
   function getAccount() {
-    new Promise((reject) => {
-      provider
-        .send("eth_requestAccounts", [])
-        .then(handleAccountsChanged)
-        .catch((error: any) => {
-          reject(error);
-        });
-    });
+    provider
+      .send("eth_requestAccounts", [])
+      .then(handleAccountsChanged)
+      .catch((error: any) => {
+        errorFunction(error);
+      });
   }
 
   useEffect(() => {
@@ -105,7 +118,7 @@ function useWallet() {
       const res = await getAllParameter();
       Context.setParameterData(res);
     } catch (error) {
-      console.log(error);
+      errorFunction(error);
     }
   };
   useEffect(() => {
@@ -120,6 +133,7 @@ function useWallet() {
       Context.setIssueFlag(res);
     } catch (error) {
       Context.setIssueFlag(false);
+      errorFunction(error);
     }
   };
   return [Context.address, getAccount];

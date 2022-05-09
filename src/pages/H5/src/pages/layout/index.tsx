@@ -11,7 +11,7 @@ function App() {
   const [address, setAddress] = useState("");
   const [issueFlag, setIssueFlag] = useState(false);
   const [parameterData, setParameterData] = useState([]);
-  const [walletError, setWalletError] = useState(null);
+
   return (
     <MyContext.Provider
       value={{
@@ -21,8 +21,6 @@ function App() {
         setIssueFlag,
         parameterData,
         setParameterData,
-        walletError,
-        setWalletError,
       }}
     >
       <div className="App">

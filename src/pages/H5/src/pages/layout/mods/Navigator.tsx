@@ -6,12 +6,9 @@ import closeImg from "../../../static/img/close.png";
 import { filter } from "@/untiles";
 import { ConnectButton } from "@/pages/H5/src/components/WalletComponent/style";
 import useWallet from "@/hooks/useWallet";
-import { MyContext } from "@/untiles/context";
-import { Toast } from "antd-mobile";
 
 function Navigator() {
   const [menueFlag, setMenueFlag] = useState("none");
-  const Context = useContext(MyContext);
 
   function handleClick() {
     setMenueFlag("block");
@@ -20,11 +17,6 @@ function Navigator() {
     setMenueFlag("none");
   }
   const [address, getAccount] = useWallet();
-  useEffect(() => {
-    if (Context.walletError !== null) {
-      Toast.show(Context.walletError);
-    }
-  }, [Context.walletError]);
 
   return (
     <div>
