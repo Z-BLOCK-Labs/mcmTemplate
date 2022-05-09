@@ -9,7 +9,6 @@ import Loading from "../../components/LoadingWindows";
 import { MyContext } from "@/untiles/context";
 import banner from "@/pages/PC/src/components/BannerComponent/banner.png";
 function App() {
-  const [count, setCount] = useState(0);
   const [address, setAddress] = useState("");
   const [showLoading, setShowLoading] = useState(false);
   const [issueFlag, setIssueFlag] = useState(false);
@@ -18,8 +17,6 @@ function App() {
   return (
     <MyContext.Provider
       value={{
-        count,
-        setCount,
         address,
         setAddress,
         showLoading,
