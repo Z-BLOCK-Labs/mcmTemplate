@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 
-const ENV = "dev";
 module.exports = {
   mode: "development", // "production" | "development" | "none"
   module: {
@@ -100,9 +99,6 @@ module.exports = {
   plugins: [
     // new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
-    new DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify(ENV),
-    }),
   ],
   // list of additional plugins
   optimization: {

@@ -40,6 +40,7 @@ module.exports = ({ platform, analyzer }, { mode }) => {
   baseConfig.plugins.push(
     new DefinePlugin({
       "process.env.platform": JSON.stringify(platform),
+      "process.env.NODE_ENV": JSON.stringify(mode),
     })
   );
   // );

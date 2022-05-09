@@ -3,11 +3,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const pkg = require('../package.json');
 const webpack = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
-const { DefinePlugin } = require('webpack');
+const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const SentryCliPlugin = require("@sentry/webpack-plugin");
-const ENV = "prod";
 module.exports = {
   mode: "production", // "production" | "development" | "none"
   entry: path.resolve(__dirname, "../src/pages/PC/src/index.tsx"), // string | object | array
@@ -105,9 +103,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify(ENV),
-    }),
     // new MiniCssExtractPlugin(),
     new webpack.BannerPlugin({
       entryOnly: true,
