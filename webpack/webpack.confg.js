@@ -36,10 +36,12 @@ module.exports = ({ platform, analyzer }, { mode }) => {
   }
   smp.wrap(baseConfig);
   baseConfig.plugins.push(new MiniCssExtractPlugin());
-  // baseConfig.plugins.push(
-  new DefinePlugin({
-    "process.env.platform": JSON.stringify(platform),
-  });
+
+  baseConfig.plugins.push(
+    new DefinePlugin({
+      "process.env.platform": JSON.stringify(platform),
+    })
+  );
   // );
   return merge(baseConfig, {
     entry: path.resolve(__dirname, entryPath),
