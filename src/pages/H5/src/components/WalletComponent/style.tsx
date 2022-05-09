@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import connectImg from "../../src/static/img/button.png";
+import connectImg from "@/pages/H5/src/static/img/button.png";
 
 export const ConnectButton = styled.button`
   position: absolute;
