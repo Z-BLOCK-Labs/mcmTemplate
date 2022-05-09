@@ -15,7 +15,8 @@ function useWallet() {
   if (typeof window.ethereum !== "undefined") {
     provider = new ethers.providers.Web3Provider(window.ethereum, "any");
   } else {
-    Toast.show("Connect failed: Please install wallet first.");
+    // Toast.show("Connect failed: Please install wallet first.");
+    Context.setWalletError("Connect failed: Please install wallet first.");
   }
 
   function handleChainChanged(chainId: any) {
@@ -23,7 +24,8 @@ function useWallet() {
       setChains(chainId);
       setChainFlag(true);
     } else {
-      Toast.show("This chain hasn't been supported yet.");
+      // Toast.show("This chain hasn't been supported yet.");
+      Context.setWalletError("This chain hasn't been supported yet.");
       setChainFlag(false);
     }
   }
