@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Navigator.css";
 import Logo from "../../../static/img/LOGO@2x.png";
 import menueImg from "../../../static/img/menue.png";
 import closeImg from "../../../static/img/close.png";
 import { filter } from "@/untiles";
-import { ConnectButton } from "@/pages/H5/components/WalletComponent/style";
+import { ConnectButton } from "@/pages/H5/src/components/WalletComponent/style";
 import useWallet from "@/hooks/useWallet";
 
 function Navigator() {
