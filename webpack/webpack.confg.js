@@ -2,6 +2,8 @@ const { merge } = require("webpack-merge");
 const path = require("path");
 const devConfig = require("./webpack.base.config");
 const prodConfig = require("./webpack.prod.base.config");
+const { DefinePlugin } = require("webpack");
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
@@ -34,6 +36,11 @@ module.exports = ({ platform, analyzer }, { mode }) => {
   }
   smp.wrap(baseConfig);
   baseConfig.plugins.push(new MiniCssExtractPlugin());
+  // baseConfig.plugins.push(
+  new DefinePlugin({
+    "process.env.platform": JSON.stringify(platform),
+  });
+  // );
   return merge(baseConfig, {
     entry: path.resolve(__dirname, entryPath),
     output: {
