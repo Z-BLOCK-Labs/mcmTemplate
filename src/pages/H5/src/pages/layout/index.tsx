@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch } from "react-router-dom";
+import { renderRoutes } from "react-router-config";
+import routesConfig from "../../routeConfig ";
 import Navigator from "./mods/Navigator";
 import "./index.css";
-import Home from "../Home";
-import Detail from "../detail";
 import { MyContext } from "@/untiles/context";
 import BannerComponent from "../../components/BannerComponent";
 import banner from "@/pages/H5/src/components/BannerComponent/banner.png";
@@ -32,14 +32,7 @@ function App() {
           boxContent={"AFK Pools"}
         />
         <HashRouter>
-          <Switch>
-            <Route exact path="/">
-              <Home></Home>
-            </Route>
-            <Route path="/detail">
-              <Detail></Detail>
-            </Route>
-          </Switch>
+          <Switch>{renderRoutes(routesConfig)}</Switch>
         </HashRouter>
       </div>
     </MyContext.Provider>
