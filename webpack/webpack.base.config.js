@@ -1,9 +1,6 @@
-const path = require('path');
-const { DefinePlugin } = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-
+const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "development", // "production" | "development" | "none"
@@ -57,6 +54,7 @@ module.exports = {
               esModule: true,
             },
           },
+          "postcss-loader",
           {
             loader: "less-loader",
           },
